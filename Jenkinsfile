@@ -40,11 +40,6 @@ pipeline{
                 }
             } 
         }
-<<<<<<< HEAD
-         }
-=======
-        }
->>>>>>> 3487eefd507d7614b3c1d9ba1847802916ae9748
         stage('Install Dependencies') {
             steps {
                 sh "npm install"
