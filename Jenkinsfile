@@ -105,21 +105,6 @@ pipeline{
         }
 
     }
-    post {
-     always {
-        emailext attachLog: true,
-            subject: "'${currentBuild.result}'",
-            body: """
-            Project: ${env.JOB_NAME}<br/> +
-                Build Number: ${env.BUILD_NUMBER}<br/> +
-                URL: ${env.BUILD_URL}<br/>
-                """,
-<<<<<<< HEAD
-            to: 'guptakushagra99@gmail.com',                              
-=======
-             to: 'guptakushagra99@gmail.com',                               
->>>>>>> 692ebe78691797dcb726390640e6e2019b83cc77
-            attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
-        }
-    }
+    
+}
 }
