@@ -111,7 +111,7 @@ pipeline{
             body: "Project: ${env.JOB_NAME}<br/>" +
                 "Build Number: ${env.BUILD_NUMBER}<br/>" +
                 "URL: ${env.BUILD_URL}<br/>",
-             'guptakushagra99@gmail.com',                                #change mail here
+             to: 'guptakushagra99@gmail.com',                               
             attachmentsPattern: 'trivyfs.txt,trivyimage.txt'
         }
     }
