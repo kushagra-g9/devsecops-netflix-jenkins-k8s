@@ -38,12 +38,16 @@ pipeline{
                 sh "npm install"
             }
         }
-        stage('OWASP FS SCAN') {
-            steps {
-                dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
-                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-            }
-        }
+       stage('OWASP FS SCAN') {
+    environment {
+        NVD_API_KEY = credentials('NVD_API_KEY_ID') 
+    }
+    steps {
+        dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
+        dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+    }
+}
+
         stage('TRIVY FS SCAN') {
             steps {
                 sh "trivy fs . > trivyfs.txt"
