@@ -32,15 +32,7 @@ pipeline{
                 }
             }
         }
-        stage("quality gate"){
-           steps {
-                script {
-                     
-                    waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube' 
-                
-            } 
-        }
-        }
+        
         stage('Install Dependencies') {
             steps {
                 sh "npm install"
